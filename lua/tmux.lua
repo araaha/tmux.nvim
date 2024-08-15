@@ -14,12 +14,11 @@ local function move(direction)
     -- Try to move to vim split
     local win_num_before = vim.fn.winnr()
     vim.cmd("wincmd " .. direction)
+    vim.cmd.startinsert()
     if vim.fn.winnr() == win_num_before then
         -- If the command did nothing, that means the current split
         -- is at the edge and we need to select the tmux pane
         tmux_move(direction)
-    else
-        vim.cmd.startinsert()
     end
 end
 
