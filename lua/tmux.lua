@@ -15,7 +15,7 @@ local function move(direction)
     local win_num_before = vim.fn.winnr()
     vim.cmd("wincmd " .. direction)
 
-    if vim.api.nvim_get_mode().mode == "t" then
+    if vim.api.nvim_get_mode().mode == "nt" then
         vim.cmd.startinsert()
     end
 
